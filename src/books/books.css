@@ -1,0 +1,107 @@
+/* Books Page */
+
+.books-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.books-header {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Book List */
+
+.book-list {
+  list-style: none;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Book Card */
+
+.book-card {
+  display: flex;
+  gap: 1rem;
+
+  background: white;
+
+  padding: 1rem;
+
+  border-radius: 12px;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Book Cover */
+
+.book-cover {
+  width: 120px;
+  height: 180px;
+
+  object-fit: cover;
+
+  border-radius: 8px;
+}
+
+/* Info */
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  flex: 1;
+}
+
+/* Title */
+
+.book-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.book-title a {
+  text-decoration: none;
+  color: #111827;
+}
+
+/* Author */
+
+.book-author {
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* Description */
+
+.book-description {
+  line-height: 1.5;
+}
+
+/* Availability */
+
+.book-status {
+  width: fit-content;
+
+  padding: 0.25rem 0.75rem;
+
+  border-radius: 999px;
+
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.available {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.unavailable {
+  background: #fee2e2;
+  color: #991b1b;
+}

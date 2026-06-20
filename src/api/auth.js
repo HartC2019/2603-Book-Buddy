@@ -1,4 +1,4 @@
-const API = "https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api";
+export const API = "https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api";
 
 export async function registerUser(credentials) {
   const response = await fetch(API + "/users/register", {
