@@ -17,7 +17,11 @@ export default function BookCard({ book }) {
 
         <p className="book-description">{book.description.slice(0, 150)}...</p>
 
-        <p className="book-status">
+        <p
+          className={`book-status ${
+            book.available ? "available" : "unavailable"
+          }`}
+        >
           {book.available ? "Available" : "Checked Out"}
         </p>
       </div>
