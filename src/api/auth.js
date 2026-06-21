@@ -35,3 +35,18 @@ export async function loginUser(credentials) {
 
   return result;
 }
+
+export async function getMe(token) {
+  const response = await fetch(`${API}/users/me`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  const result = await response.json();
+
+  if (!response.ok) {
+    throw Error(result.message);
+  }
+
+  return result;
+}

@@ -120,3 +120,37 @@
 
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
+
+/* Reservations */
+
+.reserve-button {
+  width: fit-content;
+
+  padding: 0.5rem 1rem;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #2563eb;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+/* Search Bar */
+
+.search-bar {
+  width: 100%;
+
+  padding: 0.75rem;
+
+  margin-bottom: 1.5rem;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 8px;
+
+  font-size: 1rem;
+}

@@ -4,20 +4,23 @@ import { loginUser, registerUser } from "../api/auth";
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem("token"));
 
   const login = async (credentials) => {
     const result = await loginUser(credentials);
+    localStorage.setItem("token", result.token);
     setToken(result.token);
   };
 
   const register = async (credentials) => {
     const result = await registerUser(credentials);
 
+    localStorage.setItem("token", result.token);
     setToken(result.token);
   };
 
   const logout = () => {
+    localStorage.removeItem("token");
     setToken(null);
   };
 

@@ -2,9 +2,12 @@ import "./books.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getBook } from "../api/books";
+import { useAuth } from "../auth/AuthContext";
+import { reserveBook } from "../api/books";
 
 export default function BookDetails() {
   const { id } = useParams();
+  const { token } = useAuth();
 
   const [book, setBook] = useState(null);
 
@@ -20,6 +23,17 @@ export default function BookDetails() {
   if (!book) {
     return <p>Loading...</p>;
   }
+
+  const reserve = async () => {
+    try {
+      await reserveBook(token, book.id);
+
+      const updatedBook = await getBook(id);
+      setBook(updatedBook);
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
     <section className="book-details">
@@ -37,6 +51,11 @@ export default function BookDetails() {
           >
             {book.available ? "Available" : "Checked Out"}
           </p>
+          {token && book.available && (
+            <button className="reserve-button" onClick={reserve}>
+              Reserve Book
+            </button>
+          )}
         </div>
       </section>
     </section>

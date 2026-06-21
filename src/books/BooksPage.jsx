@@ -5,6 +5,7 @@ import "./books.css";
 
 export default function BooksPage() {
   const [books, setBooks] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const syncBooks = async () => {
     const data = await getBooks();
@@ -15,10 +16,21 @@ export default function BooksPage() {
     syncBooks();
   }, []);
 
+  const filteredBooks = books.filter((book) =>
+    book.title.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
+
   return (
     <section className="books-page">
       <h1 className="books-header">Book Catalog</h1>
-      <BookList books={books} />
+      <input
+        className="search-bar"
+        type="text"
+        placeholder="Search by title"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      <BookList books={filteredBooks} />
     </section>
   );
 }
